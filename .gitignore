@@ -1,0 +1,15 @@
+credentials/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pub
+.aws/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+*.pt
+*.pth
