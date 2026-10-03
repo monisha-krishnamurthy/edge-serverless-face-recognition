@@ -27,6 +27,20 @@ flowchart LR
 - `face-detection/fd_component.py` — Greengrass message handling, detection, and SQS delivery.
 - `face-recognition/fr_lambda.py` — Lambda recognition handler and response delivery.
 
+## Python dependencies
+
+Install dependencies separately for each deployment target. For the edge component, from the repository root:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r face-detection/requirements.txt
+```
+
+Use `face-recognition/requirements.txt` when building the Lambda deployment package or container in an environment compatible with the target Lambda runtime and architecture. A macOS virtual environment is not a Lambda deployment package.
+
+Dependency lists reflect source imports and are not a tested version lock. Model assets, Greengrass configuration, and AWS resources are still required. Installation compatibility must be validated for each target before pinning versions.
+
 ## Deployment prerequisites
 
 This repository contains application source from the course submission. Infrastructure configuration and model assets must be supplied separately.
