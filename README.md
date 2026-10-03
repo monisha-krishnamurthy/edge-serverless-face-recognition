@@ -9,6 +9,19 @@ A Python face-recognition pipeline combining AWS IoT Greengrass face detection w
 3. A Lambda handler generates an InceptionResnetV1 embedding and selects the nearest stored reference embedding.
 4. The result is sent to the response SQS queue. Images without a detected face receive a `No-Face` response from the edge component.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    I[Image message] --> G[Greengrass face detection]
+    G -->|Cropped face| Q[SQS request queue]
+    Q --> L[Lambda face recognition]
+    M[Reference embeddings] --> L
+    L --> R[SQS response queue]
+    G -->|No face detected| R
+    R --> C[Client reads result]
+```
+
 ## Source layout
 
 - `face-detection/fd_component.py` — Greengrass message handling, detection, and SQS delivery.
