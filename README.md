@@ -22,6 +22,8 @@ flowchart LR
     R --> C[Client reads result]
 ```
 
+[![Python syntax check](https://github.com/monisha-krishnamurthy/edge-serverless-face-recognition/actions/workflows/python-check.yml/badge.svg)](https://github.com/monisha-krishnamurthy/edge-serverless-face-recognition/actions/workflows/python-check.yml)
+
 ## Source layout
 
 - `face-detection/fd_component.py` — Greengrass message handling, detection, and SQS delivery.
